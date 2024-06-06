@@ -1,0 +1,17 @@
+#!/bin/bash
+
+readonly SELF_DIR=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+readonly WORK_DIR="${SELF_DIR}/.."
+
+if [ $# -eq 0 ]
+    then 
+        echo "No command given."
+        exit 1
+fi
+
+arg="$1"
+
+echo "Running SDK command: $arg, in: $WORK_DIR"
+
+cd "$WORK_DIR" && docker compose -f sdk.yml run --rm --entrypoint "sh -c '$arg'" sdk
+

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+readonly SELF_DIR=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+readonly WORK_DIR="${SELF_DIR}/.."
+
+cd "$WORK_DIR" && util/run "cd /opt/app && dotnet build -o bin/dev"
+

@@ -1,0 +1,12 @@
+
+services:
+  app:
+    image: mcr.microsoft.com/dotnet/aspnet:5.0
+    ports: 
+      - "8080:80"
+    volumes:
+     - ./app:/opt/app
+    environment:
+     - ASPNETCORE_URLS=http://+:80
+    command: ["dotnet", "/opt/app/bin/dev/app.dll"]
+
